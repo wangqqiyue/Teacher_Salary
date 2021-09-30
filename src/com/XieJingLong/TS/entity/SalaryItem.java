@@ -10,8 +10,8 @@ public class SalaryItem {
     /**
      * 五险比例和住房公积金比例，都作为静态成员变量，不用再多此一举，做一次查询了。
      */
-    static double insuranceRate = 0.1;
-    static double publicReserveFundsId=0.12;
+    public static double insuranceRate = 0.1;
+    public static double publicReserveFundsRate=0.12;
 
     int teacherId;
     String teacherName;
@@ -21,5 +21,16 @@ public class SalaryItem {
     double insurance;
     double publicReserveFunds;
     double finalPayAmount;
+
+    public SalaryItem(int teacherId, String teacherName, double postSalary, double titleSalary, double totalPayAmount, double insurance, double publicReserveFunds, double finalPayAmount) {
+        this.teacherId = teacherId;
+        this.teacherName = teacherName;
+        this.postSalary = postSalary;
+        this.titleSalary = titleSalary;
+        this.totalPayAmount = totalPayAmount;
+        this.insurance = insurance;
+        this.publicReserveFunds = publicReserveFunds;
+        this.finalPayAmount = finalPayAmount;
+    }
 
 }

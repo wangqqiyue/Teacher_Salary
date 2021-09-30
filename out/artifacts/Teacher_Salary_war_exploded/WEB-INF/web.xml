@@ -29,6 +29,14 @@
         </servlet-mapping>
 
     <servlet>
+        <servlet-name>salary</servlet-name>
+        <servlet-class>com.XieJingLong.TS.web.action.GenerateSalaryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>salary</servlet-name>
+        <url-pattern>/salary</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>delete</servlet-name>
         <servlet-class>com.XieJingLong.TS.web.action.deleteListServlet</servlet-class>
     </servlet>
