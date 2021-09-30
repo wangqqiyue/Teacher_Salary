@@ -2,8 +2,10 @@ package com.XieJingLong.TS.web.action;
 
 import com.XieJingLong.TS.entity.Post;
 import com.XieJingLong.TS.entity.Teacher;
+import com.XieJingLong.TS.entity.Title;
 import com.XieJingLong.TS.util.DBUtil;
 import com.XieJingLong.TS.util.PostDao;
+import com.XieJingLong.TS.util.TitleDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -45,8 +47,9 @@ public class TeacherListServlet extends HttpServlet {
                 PostDao postDao = new PostDao();
                 Post post=postDao.getPost(post_id);
                 teacher.setPost(post.getPost());
-
-                teacher.setTitle("ddd");
+                TitleDao titleDao=new TitleDao();
+                Title title=titleDao.getTitle(title_id);
+                teacher.setTitle(title.getTitle());
 
                 teacherList.add(teacher);
             }

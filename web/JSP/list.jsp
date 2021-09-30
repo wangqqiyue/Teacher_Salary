@@ -44,7 +44,7 @@
             <td><%=c.getRealname()%></td>
             <td><%=c.getSex()%></td>
             <td><%=c.getPost()%></td>
-            <td><%=c.getTitle()%>%></td>
+            <td><%=c.getTitle()%></td>
             <td>
                 <a href="<%=request.getContextPath()%>/JSP/updateList.jsp?id=<%=c.getId()%>&realname=<%=c.getRealname()%>&sex=<%=c.getSex()%>" >修改</a>
                 <a href="<%=request.getContextPath()%>/delete?id=<%=c.getId()%>" >删除</a>
