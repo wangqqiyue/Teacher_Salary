@@ -7,10 +7,6 @@ JDBC 工具类，方便日后操作
 import java.sql.*;
 
 public class DBUtil {
-//工具类的构造函数一般都是私有的，因为工具类的方法都是静态的，不需new对象
-    private DBUtil(){
-
-    }
 
 //Register the SQL Driver.and in the Static coding block,only execute once when the class was loaded.
     static {

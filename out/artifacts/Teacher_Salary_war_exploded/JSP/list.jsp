@@ -17,17 +17,19 @@
     <hr>
     <table border="1px" width="50%">
         <tr align="center">
-            <th>序号</th>
+            <th>工号</th>
             <th>姓名</th>
             <th>性别</th>
             <th>职位</th>
+            <th>职称</th>
             <th>操作</th>
         </tr>
         <tr align="center">
             <td>0</td>
             <td>示例</td>
-            <td>m</td>
-            <td>teacher</td>
+            <td>男</td>
+            <td>班主任</td>
+            <td>初级教师</td>
             <td>
                 <a href="">修改</a>
                 <a href="">删除</a>
@@ -42,6 +44,7 @@
             <td><%=c.getRealname()%></td>
             <td><%=c.getSex()%></td>
             <td><%=c.getPost()%></td>
+            <td><%=c.getTitle()%>%></td>
             <td>
                 <a href="<%=request.getContextPath()%>/JSP/updateList.jsp?id=<%=c.getId()%>&realname=<%=c.getRealname()%>&sex=<%=c.getSex()%>" >修改</a>
                 <a href="<%=request.getContextPath()%>/delete?id=<%=c.getId()%>" >删除</a>

@@ -37,4 +37,13 @@ public class Teacher {
     private String realname;
     private String sex;
     private String post;
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

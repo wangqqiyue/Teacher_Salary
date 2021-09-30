@@ -1,7 +1,9 @@
 package com.XieJingLong.TS.web.action;
 
+import com.XieJingLong.TS.entity.Post;
 import com.XieJingLong.TS.entity.Teacher;
 import com.XieJingLong.TS.util.DBUtil;
+import com.XieJingLong.TS.util.PostDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +19,7 @@ import java.util.List;
 public class TeacherListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -25,20 +27,26 @@ public class TeacherListServlet extends HttpServlet {
         try {
             conn = DBUtil.getConnection();
             DBUtil.beginTransaction(conn);
-            String sql = "select id,realname,sex,post from tea_info";
+            String sql = "select id,realname,sex,post_id,title_id from tea_info";
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String realname = rs.getString("realname");
                 String sex = rs.getString("sex");
-                String post = rs.getString("post");
+                int post_id = rs.getInt("post_id");
+                int title_id = rs.getInt("title_id");
 
                 Teacher teacher = new Teacher();
                 teacher.setId(id);
                 teacher.setRealname(realname);
                 teacher.setSex(sex);
-                teacher.setPost(post);
+
+                PostDao postDao = new PostDao();
+                Post post=postDao.getPost(post_id);
+                teacher.setPost(post.getPost());
+
+                teacher.setTitle("ddd");
 
                 teacherList.add(teacher);
             }
