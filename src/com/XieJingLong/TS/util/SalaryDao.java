@@ -28,18 +28,18 @@ public class SalaryDao {
         try {
             conn = DBUtil.getConnection();
             DBUtil.beginTransaction(conn);
-            String sql = "select id,realname,post_id,title_id from tea_info";
+            String sql = "select id,realname,post,title from tea_info";
             ps = conn.prepareStatement(sql);
             ps.executeQuery(sql);
             rs = ps.getResultSet();
             while (rs.next()){
                 int id = rs.getInt("id");
                 String name = rs.getString("realname");
-                int postId = rs.getInt("post_id");
-                int titleId = rs.getInt("title_id");
+                String post = rs.getString("post");
+                String title = rs.getString("title");
 
-                double postSalary = new PostDao().getPost(postId).getSalary();
-                double titleSalary = new TitleDao().getTitle(titleId).getSalary();
+                double postSalary = new PostDao().getSalary(post);
+                double titleSalary = new TitleDao().getSalary(title);
                 double totalPayAmount = postSalary+titleSalary;
                 double insurance = totalPayAmount*SalaryItem.insuranceRate;
                 double publicReverseFunds = totalPayAmount*SalaryItem.publicReserveFundsRate;

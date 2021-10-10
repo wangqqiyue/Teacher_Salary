@@ -49,5 +49,34 @@ public class PostTitleDao extends DBUtil {
 
     }
 
+    /**
+     * 根据项目名获取对应薪资
+     * @param name 项目名
+     * @return 薪资
+     */
+    public double getSalary(String name){
+        double salary=0;
+        //JDBC连接数据库保存数据
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+
+            conn = DBUtil.getConnection();
+            DBUtil.beginTransaction(conn);
+            String sql = "select salary from "+ table +" where name=" + name;
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery(sql);
+            while (rs.next()) {
+                salary = rs.getDouble("salary");
+            }
+        } catch (Exception e) {
+            DBUtil.rollbackTransaction(conn);
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(conn, ps, null);
+        }
+        return salary;
+    }
 
 }
