@@ -38,7 +38,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>delete</servlet-name>
-        <servlet-class>com.XieJingLong.TS.web.action.deleteListServlet</servlet-class>
+        <servlet-class>com.XieJingLong.TS.web.action.DeleteListServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>delete</servlet-name>
@@ -47,7 +47,7 @@
 
     <servlet>
         <servlet-name>update</servlet-name>
-        <servlet-class>com.XieJingLong.TS.web.action.updateListServlet</servlet-class>
+        <servlet-class>com.XieJingLong.TS.web.action.UpdateListServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>update</servlet-name>

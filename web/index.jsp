@@ -7,12 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>index</title>
-  </head>
-  <body>
-  <a href="<%=request.getContextPath()%>/JSP/save.jsp">添加教职工信息</a>
-  <br>
-  <a href="<%=request.getContextPath()%>/list">查看教职工信息</a>
-  </body>
+</head>
+<body>
+<a href="<%=request.getContextPath()%>/JSP/save.jsp">添加教职工信息</a>
+<br>
+<a href="<%=request.getContextPath()%>/list">查看教职工信息</a>
+<br>
+<a href="<%=request.getContextPath()%>/salary">查看工资表</a>
+</body>
 </html>

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class updateListServlet extends HttpServlet {
+public class UpdateListServlet extends HttpServlet {
 /*  @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 }*/
