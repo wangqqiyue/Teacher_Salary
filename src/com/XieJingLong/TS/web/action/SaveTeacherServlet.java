@@ -18,8 +18,8 @@ public class SaveTeacherServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String realname = request.getParameter("realname");
         String sex = request.getParameter("sex");
-        int post_id = Integer.parseInt(request.getParameter("post_id"));
-        int title_id = Integer.parseInt(request.getParameter("title_id"));
+        String post = request.getParameter("post");
+        String title = request.getParameter("title");
 
         //JDBC连接数据库保存数据
         Connection conn = null;
@@ -28,12 +28,12 @@ public class SaveTeacherServlet extends HttpServlet {
         try {
             conn = DBUtil.getConnection();
             DBUtil.beginTransaction(conn);
-            String sql = "insert into tea_info(realname,sex,post_id,title_id) values(?,?,?,?)";
+            String sql = "insert into tea_info(realname,sex,post,title) values(?,?,?,?)";
             ps = conn.prepareStatement(sql);
             ps.setString(1, realname);
             ps.setString(2, sex);
-            ps.setInt(3, post_id);
-            ps.setInt(4,title_id);
+            ps.setString(3, post);
+            ps.setString(4,title);
             ResultCount = ps.executeUpdate();
             DBUtil.commitTransaction(conn);
         } catch (Exception e) {
