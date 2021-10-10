@@ -1,11 +1,7 @@
 package com.XieJingLong.TS.web.action;
 
-import com.XieJingLong.TS.entity.Post;
 import com.XieJingLong.TS.entity.Teacher;
-import com.XieJingLong.TS.entity.Title;
 import com.XieJingLong.TS.util.DBUtil;
-import com.XieJingLong.TS.util.PostDao;
-import com.XieJingLong.TS.util.TitleDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,27 +25,22 @@ public class TeacherListServlet extends HttpServlet {
         try {
             conn = DBUtil.getConnection();
             DBUtil.beginTransaction(conn);
-            String sql = "select id,realname,sex,post_id,title_id from tea_info";
+            String sql = "select id,realname,sex,post,title from tea_info";
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String realname = rs.getString("realname");
                 String sex = rs.getString("sex");
-                int post_id = rs.getInt("post_id");
-                int title_id = rs.getInt("title_id");
+                String post = rs.getString("post");
+                String title = rs.getString("title");
 
                 Teacher teacher = new Teacher();
                 teacher.setId(id);
                 teacher.setRealname(realname);
                 teacher.setSex(sex);
-
-                PostDao postDao = new PostDao();
-                Post post=postDao.getPost(post_id);
-                teacher.setPost(post.getPost());
-                TitleDao titleDao=new TitleDao();
-                Title title=titleDao.getTitle(title_id);
-                teacher.setTitle(title.getTitle());
+                teacher.setPost(post);
+                teacher.setTitle(title);
 
                 teacherList.add(teacher);
             }
