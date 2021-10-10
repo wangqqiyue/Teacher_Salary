@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.XieJingLong.TS.util.PostDao" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.XieJingLong.TS.util.TitleDao" %><%--
   Created by IntelliJ IDEA.
   User: kinglong
   Date: 2021/9/24
@@ -19,18 +21,26 @@
     <input type="radio" name="sex" value="男">男
     <input type="radio" name="sex" value="女">女
     <br>
+    <%
+        PostDao postDao = new PostDao();
+        List<String> postNames = postDao.getNames();
+    %>
     职务：
     <select id="post_list" name="post_id">
-        <option value="1">普通教师</option>
-        <option value="2">班主任</option>
-        <option value="3">教导主任</option>
+        <% for (String name:postNames) { %>
+        <option value=<%=name%>><%=name%></option>
+        <% } %>
     </select>
     <br>
+    <%
+        TitleDao titleDao = new TitleDao();
+        List<String> titleNames = titleDao.getNames();
+    %>
     职称：
     <select id="title_list" name="title_id">
-        <option value="1">初级教师</option>
-        <option value="2">中级教师</option>
-        <option value="3">高级教师</option>
+        <% for (String name:titleNames) { %>
+        <option value=<%=name%>><%=name%></option>
+        <% } %>
     </select>
     <br>
 

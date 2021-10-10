@@ -7,7 +7,7 @@ package com.XieJingLong.TS.util;
  */
 public class PostDao extends PostTitleDao {
 
-    PostDao() {
+    public PostDao() {
         super("post_salary_relation");
     }
 }
