@@ -11,7 +11,7 @@ public class DBUtil {
 //Register the SQL Driver.and in the Static coding block,only execute once when the class was loaded.
     static {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -27,6 +27,7 @@ public class DBUtil {
         String user="root";
         String password="123456";
         Connection conn= DriverManager.getConnection(url,user,password);
+//        System.out.println("成功连接数据库");
         return conn;
     }
 
