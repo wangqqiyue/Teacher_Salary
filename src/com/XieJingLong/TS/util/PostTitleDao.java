@@ -64,7 +64,8 @@ public class PostTitleDao extends DBUtil {
 
             conn = DBUtil.getConnection();
             DBUtil.beginTransaction(conn);
-            String sql = "select salary from "+ table +" where name=" + name;
+            String sql = "select salary from "+ table + " where name='" + name +"'";
+            System.out.println(sql);
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery(sql);
             while (rs.next()) {

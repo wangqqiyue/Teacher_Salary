@@ -26,7 +26,7 @@
         List<String> postNames = postDao.getNames();
     %>
     职务：
-    <select id="post_list" name="post_id">
+    <select id="post_list" name="post">
         <% for (String name:postNames) { %>
         <option value=<%=name%>><%=name%></option>
         <% } %>
@@ -37,7 +37,7 @@
         List<String> titleNames = titleDao.getNames();
     %>
     职称：
-    <select id="title_list" name="title_id">
+    <select id="title_list" name="title">
         <% for (String name:titleNames) { %>
         <option value=<%=name%>><%=name%></option>
         <% } %>
